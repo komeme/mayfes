@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "mayfes arduino server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Takahashi Ryo",
+  "license": "ISC",
+  "dependencies": {
+    "serialport": "^4.0.7"
+  }
+}
