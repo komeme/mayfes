@@ -1,4 +1,4 @@
-var sample_play_sound = new Audio("sample.mp3");
+var sample_play_sound = new Audio("LightsOffBGM.mp3");
 
 function playSound()
 {

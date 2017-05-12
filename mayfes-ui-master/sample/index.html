@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+<html>
   <head>
     <meta charset="UTF-8">
     <title>Mayfes KawaharaLab</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
     <script type="text/javascript" src="sound.js"></script>
@@ -14,15 +15,15 @@
       <h1 class="project-name">Sample</h1>
       <form action="http://127.0.0.1:8080/send" method="post" name="cmd_form">
         <input type="hidden" name="cmd">
-        <script type="text/javascript"><!-- 
-            function Post(cmd) { 
+        <script type="text/javascript"><!--
+            function Post(cmd) {
             　　cmd_form.cmd.value = cmd;
             　　cmd_form.submit();
             }
    //--></script>
-        <a class="btn" href="javascript:Post('s00')"onclick="playSound()">Start</a><br>
-        <a class="btn" href="javascript:Post('r')" onclick="resetSound()">Reset</a><br>
-        <a class="btn" href="javascript:Post('e')" onclick="stopSound()">Stop</a><br>
+        <a class="btn" href="javascript:Post("s00")" onclick="playSound()"> Start </a><br>
+        <a class="btn" href="javascript:Post("r")" onclick="resetSound()">Reset</a><br>
+        <a class="btn" href="javascript:Post("e")" onclick="stopSound()">Stop</a><br>
         <a href="../index.html" class="btn">Home</a><br>
       </form>
     </section>
