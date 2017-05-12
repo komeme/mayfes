@@ -33,7 +33,10 @@ const int START_LED_PIN = 22;
     }
   }
 }*/
-void shuffle(int ary[],int size){
+
+void renew_led_panel(Point2i);
+
+void shuffle(int ary[],int size){//配列をシャフルする
   randomSeed(analogRead(0));
   for(int i=0;i<size;i++){
     int j = random(9);
@@ -43,11 +46,14 @@ void shuffle(int ary[],int size){
   }
 }
 
-void level_set(int lv){
+void level_set(int lv){//lv個だけランダムに選び
   int list[9] ={0,1,2,3,4,5,6,7,8,9};
   shuffle(list, 9);
   for(int i=0;i<lv;i++){
-    led_panel[list[i]/3][list[i]%3] = true;
+    Point2i pos;
+    pos.x = list[i]/3;
+    pos.y = list[i]%3;
+    renew_led_panel(pos);
   }
 }
 
@@ -131,21 +137,21 @@ Point2i touched_pos()
 /*
  * タッチされた場所を渡し、3x3のLEDパネルの状態を更新する。
  */
- void renew_led_panel(Point2i touched_pos)
- {
-   int dir[5][2] = {{0,0},{0,-1},{0,1},{-1,0},{1,0}};
-     for(int i=0;i<5;i++){
-       int nx = touched_pos.x + dir[i][0];
-       int ny = touched_pos.y + dir[i][1];
-       if(nx<0||nx>2){
-         continue;
-       }
-       if(ny<0||ny>2){
-         continue;
-       }
-       led_panel[nx][ny]=!led_panel[nx][ny];
-     }
- }
+void renew_led_panel(Point2i touched_pos)
+{
+  int dir[5][2] = {{0,0},{0,-1},{0,1},{-1,0},{1,0}};
+  for(int i=0;i<5;i++){
+    int nx = touched_pos.x + dir[i][0];
+    int ny = touched_pos.y + dir[i][1];
+    if(nx<0||nx>2){
+      continue;
+    }
+    if(ny<0||ny>2){
+      continue;
+    }
+  led_panel[nx][ny]=!led_panel[nx][ny];
+  }
+}
 
 void light_on()
 {
