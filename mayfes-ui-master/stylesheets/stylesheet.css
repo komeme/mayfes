@@ -37,7 +37,7 @@ a {
 
 @media screen and (min-width: 64em) {
   .btn {
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1rem; 
     font-size: 1.1rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
@@ -55,8 +55,10 @@ a {
       margin-top: 1rem;
       margin-left: 0; } }
 
-.page-header {
+.page-header{
   color: #fff;
+  width: 100vw;
+  height: 100vh;
   text-align: center;
   background-color: #159957;
   background-image: linear-gradient(120deg, #155799, #159957); }
