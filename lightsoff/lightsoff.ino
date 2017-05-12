@@ -21,7 +21,7 @@ const int START_LED_PIN = 22;
 /*
  * ゲームの初期化用関数。主にパネルの状態をもつ配列の初期化を行う。
  */
-void init_game() {
+/*void init_game() {
   // 配列の初期化。
   // memsetを使うとfor文を使わずに配列の中身全てを初期化できる。
   memset(touch_panel, TouchState::None, sizeof(touch_panel) / sizeof(touch_panel[0][0]));
@@ -32,6 +32,32 @@ void init_game() {
       led_panel[x][y]=int(random(2));
     }
   }
+}*/
+void shuffle(int ary[],int size){
+  randomSeed(analogRead(0));
+  for(int i=0;i<size;i++){
+    int j = random(9);
+    int t = ary[i];
+    ary[i] = ary[j];
+    ary[j] = t;
+  }
+}
+
+void level_set(int lv){
+  int list[9] ={0,1,2,3,4,5,6,7,8,9};
+  shuffle(list, 9);
+  for(int i=0;i<lv;i++){
+    led_panel[list[i]/3][list[i]%3] = true;
+  }
+}
+
+void init_game(int lv) {
+  // 配列の初期化。
+  // memsetを使うとfor文を使わずに配列の中身全てを初期化できる。
+  memset(touch_panel, TouchState::None, sizeof(touch_panel) / sizeof(touch_panel[0][0]));
+  memset(led_panel, false, sizeof(led_panel));
+  randomSeed(analogRead(0));
+  level_set(lv);
 }
 
 /*
