@@ -4,7 +4,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var SerialPort = require("serialport");
-var serialPort = new SerialPort('COM14', {
+var serialPort = new SerialPort('COM13', {
   baudrate: 9600
 });
 
@@ -14,7 +14,7 @@ serialPort.on('open', function () {
 
 app.post('/send', function(req, res) {
   console.log('send cmd: ' + req.body.cmd);
-  serialPort.write(req.body.cmd + "\n", function(err, results) {
+  serialPort.write(req.body.cmd, function(err, results) {
     if (err) {
       console.log('err ' + err);
       console.log('results ' + results);
